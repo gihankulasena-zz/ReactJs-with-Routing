@@ -49,10 +49,17 @@ class Users extends Component {
 
     //fetching data from api
     componentDidMount() {
-        if(!localStorage.getItem('contacts')){
+        const date = localStorage.getItem('contactsDate');
+        const contactsDate  = new Date(parseInt(date));
+        const nowDate = new Date();
+        //convert to minutes
+        const dataAge = Math.round((nowDate - contactsDate) / (1000 * 60));         
+
+        if(dataAge >= 10 || !localStorage.getItem('contacts')){
             this.fetchData();
-        }else{
-            console.log('Using data from local storage')
+        }
+        else{
+            console.log(`Using data from local storage that is ${dataAge} minutes old.`);
         }
          //this.fetchData();
     }
@@ -68,6 +75,10 @@ class Users extends Component {
     }
 
     fetchData() {
+        this.setState({
+            isLoading: true,
+            contacts: []
+        });
         //using fetchAPI
         //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
         fetch('https://randomuser.me/api/?results=10&gender=female')
