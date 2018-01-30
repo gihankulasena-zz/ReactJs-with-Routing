@@ -10,7 +10,7 @@ import Divider from 'material-ui/Divider';
 import HomeIcon from 'material-ui-icons/Home';
 import InfoIcon from 'material-ui-icons/Info';
 import CarIcon from 'material-ui-icons/DirectionsCar';
-
+import FaceIcon from 'material-ui-icons/Face';
 
 
 // The Header creates links that can be used to navigate
@@ -38,16 +38,23 @@ const Header = () => (
         <ListItemText inset />
       </MenuItem>
       <Divider />
-      <MenuItem>
+      {/* <MenuItem>
         <ListItemIcon>
           <Link to='/about'><InfoIcon /> About</Link>
+        </ListItemIcon>
+        <ListItemText inset />
+      </MenuItem>
+      <Divider /> */}
+      <MenuItem>
+        <ListItemIcon>
+          <Link to='/cars'><CarIcon /> Cars</Link>
         </ListItemIcon>
         <ListItemText inset />
       </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
-          <Link to='/cars'><CarIcon /> Cars</Link>
+          <Link to='/users'><FaceIcon /> Users</Link>
         </ListItemIcon>
         <ListItemText inset />
       </MenuItem>

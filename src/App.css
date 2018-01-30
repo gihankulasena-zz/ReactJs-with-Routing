@@ -52,3 +52,7 @@ html {
 .cardImage{
   height: 200px;
 }
+
+.main-content {
+  padding-left: 12px;
+}
